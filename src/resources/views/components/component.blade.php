@@ -24,9 +24,9 @@
 			flowchart: { 
 				htmlLabels: 'true', 
 				curve: 'stepBefore', 
-				diagramPadding: 0,
+				diagramPadding: 15,
 				nodeSpacing: 20,
-				useMaxWidth: false
+				useMaxWidth: true
 			}
         	
 		});
