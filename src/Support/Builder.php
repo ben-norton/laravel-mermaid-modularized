@@ -46,6 +46,12 @@ class Builder
         return ($type ?? "flowchart LR") . ";\n";
     }
 
+	public static function setConfiguration(): string
+	{
+		 return "%%{\n
+	            init: {\"theme\": \"forest\", \"flowchart\": { \"htmlLabels\": \"true\", \"curve\": \"stepBefore\", }
+	            }%%\n";
+	}
     /**
      * Set the diagram theme
      * @return string
@@ -80,7 +86,7 @@ class Builder
 
         $themeString =
             "%%{\n
-            init: $themeJson
+            init: $themeJson, \"flowchart\": { \"htmlLabels\": \"true\", \"curve\": \"stepBefore\", }
             }%%\n";
 
         return $themeString;
@@ -93,9 +99,9 @@ class Builder
     public static function generateDiagramFromCollection(Collection $models, ?string $label = null, ?string $type = null, ?array $options = []): string
     {
         $diagram = self::formatCollectionToLines($models, $label);
+        $diagram = self::setConfiguration() . $diagram;
         $diagram = self::setDiagramType($type) . $diagram;
-        $diagram = self::setTheme(config('mermaid.theme')) . $diagram;
-
+        //$diagram = self::setTheme(config('mermaid.theme')) . $diagram;
         return $diagram;
     }
 
