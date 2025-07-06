@@ -17,8 +17,20 @@
           return;
         }
 
-        mermaid.initialize({ startOnLoad: true });
-        mermaid.contentLoaded();
+        mermaid.initialize({ 
+        	securityLevel: 'loose',
+			startOnLoad: true, 
+			theme: 'forest',
+			flowchart: { 
+				htmlLabels: 'true', 
+				curve: 'stepBefore', 
+				diagramPadding: 0,
+				nodeSpacing: 20,
+				useMaxWidth: false
+			}
+        	
+		});
+		mermaid.contentLoaded();
       }
 
       document.addEventListener('DOMContentLoaded', initMermaid);
