@@ -43,7 +43,7 @@ class Builder
      */
     protected static function setDiagramType(?string $type): string
     {
-        return ($type ?? "graph LR") . ";\n";
+        return ($type ?? "flowchart LR") . ";\n";
     }
 
     /**
@@ -60,7 +60,7 @@ class Builder
 
         if ( in_array($base_theme, ['base', 'forest', 'dark', 'neutral', 'default'])) {
             return "%%{\n
-            init: {\"theme\": \"$base_theme\"}
+            init: {\"theme\": \"$base_theme\", \"flowchart\": { \"htmlLabels\": \"true\", \"curve\": \"stepBefore\", }
             }%%\n";
         }
 
