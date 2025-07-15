@@ -1,4 +1,4 @@
-# laravel-mermaid-mmodularized
+# laravel-mermaid-modularized
 A fork of the laravel mermaid.js integration package (https://github.com/icehouse-ventures/laravel-mermaid(
 
 The javascript inserted into the body of the html doc has been removed. Teh user is now required to add the block below before the body closing tag after the script block.
